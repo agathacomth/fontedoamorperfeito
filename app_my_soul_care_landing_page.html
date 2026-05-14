@@ -368,7 +368,7 @@
   /* ===== FEATURES ===== */
   .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
     margin-top: 2.5rem;
   }
@@ -541,17 +541,52 @@
   }
   .plan-tg { font-size: 0.76rem; color: var(--text-mid); }
   .plan-mid { padding: 1.6rem; }
-  .price-rows { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+  .price-rows { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.6rem; }
   .price-row {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; align-items: center; gap: 0.55rem;
     background: var(--off-white);
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
     border-radius: 10px;
-    padding: 0.55rem 0.9rem;
+    padding: 0.55rem 0.8rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.18s ease, border-color 0.18s ease;
   }
-  .price-row.best { background: var(--teal-pale); border-color: rgba(58,173,168,0.35); }
+  .price-row:hover { background: #edf3f2; }
+  .pr-radio {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--teal-light);
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.18s ease;
+  }
+  .price-row.selected {
+    background: var(--teal-pale);
+    border-color: var(--teal);
+  }
+  .price-row.selected .pr-radio { border-color: var(--teal); }
+  .price-row.selected .pr-radio::after {
+    content: '';
+    position: absolute;
+    inset: 2.5px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  .price-row.selected .pr-v { color: var(--teal-dark); }
+  .price-row:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+  .price-tag-best {
+    font-size: 0.52rem; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+    color: #fff; background: var(--gold);
+    padding: 0.12rem 0.45rem; border-radius: 50px; margin-left: 0.35rem;
+    vertical-align: middle;
+  }
+  .price-note {
+    font-size: 0.66rem; color: var(--text-light); text-align: center;
+    margin-bottom: 1.1rem;
+  }
   .pr-l { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); }
-  .pr-r { text-align: right; }
+  .pr-r { text-align: right; margin-left: auto; }
   .pr-v { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.18rem; color: var(--navy); line-height: 1.1; }
   .pr-s { font-size: 0.6rem; font-weight: 700; color: var(--teal-dark); display: block; }
   .feat-title {
@@ -697,6 +732,9 @@
     .pad { padding: 3.5rem 0; }
     .hero-float.f1 { left: 0; }
     .hero-float.f2 { right: 0; }
+  }
+  @media (max-width: 560px) {
+    .features { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -946,10 +984,11 @@
         </div>
         <div class="plan-mid">
           <div class="price-rows">
-            <div class="price-row"><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$39,90</span><span class="pr-s">por mês</span></span></div>
-            <div class="price-row"><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$99,00</span><span class="pr-s">R$33/mês</span></span></div>
-            <div class="price-row best"><span class="pr-l">Anual 🤍</span><span class="pr-r"><span class="pr-v">R$297,00</span><span class="pr-s">R$24,75/mês · melhor preço</span></span></div>
+            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$39,90</span><span class="pr-s">por mês</span></span></div>
+            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$99,00</span><span class="pr-s">R$33/mês</span></span></div>
+            <div class="price-row selected" role="radio" tabindex="0" aria-checked="true" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Anual<span class="price-tag-best">melhor</span></span><span class="pr-r"><span class="pr-v">R$297,00</span><span class="pr-s">R$24,75/mês</span></span></div>
           </div>
+          <p class="price-note">👆 Toque no plano que você quer</p>
           <div class="feat-title">✨ O que inclui</div>
           <ul class="plan-feats">
             <li>Até 10 mensagens por dia</li>
@@ -981,10 +1020,11 @@
         </div>
         <div class="plan-mid">
           <div class="price-rows">
-            <div class="price-row"><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$49,90</span><span class="pr-s">por mês</span></span></div>
-            <div class="price-row"><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$129,00</span><span class="pr-s">≈ R$43/mês</span></span></div>
-            <div class="price-row best"><span class="pr-l">Anual 🤍</span><span class="pr-r"><span class="pr-v">R$397,00</span><span class="pr-s">≈ R$33/mês · benefício extra</span></span></div>
+            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$49,90</span><span class="pr-s">por mês</span></span></div>
+            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$129,00</span><span class="pr-s">≈ R$43/mês</span></span></div>
+            <div class="price-row selected" role="radio" tabindex="0" aria-checked="true" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Anual<span class="price-tag-best">melhor</span></span><span class="pr-r"><span class="pr-v">R$397,00</span><span class="pr-s">≈ R$33/mês · + benefício extra</span></span></div>
           </div>
+          <p class="price-note">👆 Toque no plano que você quer</p>
           <div class="feat-title">✨ Mensal / Trimestral</div>
           <ul class="plan-feats">
             <li>15 mensagens por dia</li>
@@ -1013,10 +1053,11 @@
         </div>
         <div class="plan-mid">
           <div class="price-rows">
-            <div class="price-row"><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$69,90</span><span class="pr-s">por mês</span></span></div>
-            <div class="price-row"><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$177,00</span><span class="pr-s">R$59/mês</span></span></div>
-            <div class="price-row best"><span class="pr-l">Anual 🤍</span><span class="pr-r"><span class="pr-v">R$597,00</span><span class="pr-s">R$49/mês · benefício extra</span></span></div>
+            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$69,90</span><span class="pr-s">por mês</span></span></div>
+            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$177,00</span><span class="pr-s">R$59/mês</span></span></div>
+            <div class="price-row selected" role="radio" tabindex="0" aria-checked="true" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Anual<span class="price-tag-best">melhor</span></span><span class="pr-r"><span class="pr-v">R$597,00</span><span class="pr-s">R$49/mês · + benefício extra</span></span></div>
           </div>
+          <p class="price-note">👆 Toque no plano que você quer</p>
           <div class="feat-title">✨ Mensal / Trimestral</div>
           <ul class="plan-feats">
             <li>25 mensagens por dia</li>
@@ -1110,6 +1151,16 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function selectPrice(row) {
+    const rows = row.parentElement.querySelectorAll('.price-row');
+    rows.forEach(r => { r.classList.remove('selected'); r.setAttribute('aria-checked', 'false'); });
+    row.classList.add('selected');
+    row.setAttribute('aria-checked', 'true');
+  }
+  function priceKey(e, row) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPrice(row); }
+  }
 </script>
 
 </body>
