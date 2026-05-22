@@ -703,88 +703,55 @@
   }
   .plans-note strong { color: var(--teal-dark); }
 
-  /* ===== PLANS — VERSÃO B (anual destacado) ===== */
-  .planb-switch {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.9rem;
-  }
-  .pb-opt {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    background: var(--off-white);
-    border: 1.5px solid rgba(58,173,168,0.25);
-    border-radius: 12px;
-    padding: 0.6rem 0.65rem;
-    cursor: pointer;
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    transition: background 0.18s ease, border-color 0.18s ease;
-  }
-  .pb-opt:hover { background: #edf3f2; }
-  .pb-box {
-    width: 16px; height: 16px;
-    border-radius: 5px;
-    border: 2px solid var(--teal-light);
-    flex-shrink: 0;
-    position: relative;
-    transition: all 0.18s ease;
-  }
-  .pb-opt.selected { background: var(--teal-pale); border-color: var(--teal); }
-  .pb-opt.selected .pb-box { border-color: var(--teal); background: var(--teal); }
-  .pb-opt.selected .pb-box::after {
-    content: '✓';
-    position: absolute;
-    inset: 0;
-    color: #fff;
-    font-size: 0.66rem;
-    font-weight: 900;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .pb-opt-txt { line-height: 1.15; }
-  .pb-opt-l { font-size: 0.64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-light); display: block; }
-  .pb-opt-v { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
-  .pb-opt:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-
-  .planb-annual {
-    border: 2px solid var(--gold-light);
-    background: linear-gradient(160deg, var(--gold-pale), #fdeebb);
-    border-radius: 16px;
-    padding: 1.2rem 1.1rem 1.3rem;
-    text-align: center;
-    position: relative;
-    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 10px 28px rgba(212,168,67,0.22);
-  }
-  .planb-annual.dim { opacity: 0.5; box-shadow: none; border-color: rgba(212,168,67,0.3); }
-  .pb-flag {
-    position: absolute;
-    top: -0.7rem; left: 50%; transform: translateX(-50%);
-    background: var(--gold);
-    color: #fff;
-    font-size: 0.56rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 0.28rem 0.85rem;
+  /* ===== PLANS — VERSÃO B (toggle de período no topo) ===== */
+  .period-toggle {
+    display: inline-flex;
+    gap: 0.3rem;
+    background: var(--white);
+    border: 1px solid rgba(58,173,168,0.3);
     border-radius: 50px;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px var(--shadow-gold);
+    padding: 0.35rem;
+    box-shadow: 0 6px 20px var(--shadow);
   }
-  .pb-period { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #9a6f00; margin-top: 0.4rem; }
+  .period-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .period-btn:hover { color: var(--navy); }
+  .period-btn.active { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: #fff; box-shadow: 0 6px 16px rgba(58,173,168,0.35); }
+  .period-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+  .period-save {
+    font-size: 0.58rem; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase;
+    background: var(--gold); color: #fff; padding: 0.1rem 0.45rem; border-radius: 50px;
+  }
+  .period-btn.active .period-save { background: rgba(255,255,255,0.92); color: #9a6f00; }
+  .period-hint { font-size: 0.68rem; color: var(--text-light); text-align: center; margin-top: 0.7rem; }
+
+  /* mostra apenas o período ativo */
+  .plansB-wrap .when-mensal, .plansB-wrap .when-trimestral, .plansB-wrap .when-anual, .plansB-wrap .when-mt { display: none; }
+  .plansB-wrap.show-mensal .when-mensal,
+  .plansB-wrap.show-trimestral .when-trimestral,
+  .plansB-wrap.show-anual .when-anual { display: block; }
+  .plansB-wrap.show-mensal .when-mt,
+  .plansB-wrap.show-trimestral .when-mt { display: block; }
+
+  .pb-price-box { text-align: center; padding: 0.5rem 0 0.3rem; }
   .pb-price {
-    font-family: 'DM Serif Display', serif;
-    font-style: italic;
-    font-size: 2.5rem;
-    color: var(--navy);
-    line-height: 1;
-    margin: 0.2rem 0 0.1rem;
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 2.5rem; color: var(--navy); line-height: 1; margin: 0;
   }
   .pb-price span { font-size: 0.9rem; font-style: normal; font-family: 'Montserrat'; color: var(--text-mid); font-weight: 600; }
-  .pb-sub { font-size: 0.74rem; font-weight: 700; color: var(--teal-dark); }
-  .pb-hint { font-size: 0.66rem; color: var(--text-light); text-align: center; margin: 0.6rem 0 0; }
+  .pb-sub { font-size: 0.74rem; font-weight: 700; color: var(--teal-dark); margin-top: 0.25rem; }
+  .pb-old { font-size: 0.72rem; color: var(--text-light); text-decoration: line-through; margin-top: 0.15rem; }
 
   /* ===== FAQ ===== */
   .faq { max-width: 760px; margin: 2.5rem auto 0; }
@@ -1259,16 +1226,26 @@
   </div>
 </section>
 
-<!-- PLANS — VERSÃO B (anual em destaque) -->
+<!-- PLANS — VERSÃO B (toggle de período no topo) -->
 <section class="pad bg-gold" id="planos-b">
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow gold">Versão alternativa da oferta · Opção B</span>
-      <h2>O anual em destaque,<br>os outros a um toque.</h2>
+      <h2>Escolha como quer pagar.<br>O painel muda com um toque.</h2>
       <div class="gold-line"></div>
-      <p class="lead">Aqui o melhor preço (o <strong>anual</strong>) já aparece em evidência — e os planos mensal e trimestral ficam nas caixinhas acima, pra quem quiser comparar. Menos de R$1 por dia pra cuidar da sua alma todo dia.</p>
+      <p class="lead">Use o botão lá em cima pra alternar entre <strong>mensal, trimestral e anual</strong> — os preços e os benefícios de todos os planos mudam na hora. O <strong>anual</strong> já vem selecionado: é a escolha mais inteligente e a mais querida por aqui.</p>
     </div>
-    <div class="plans">
+
+    <div class="center reveal" style="margin-top:2.4rem;">
+      <div class="period-toggle" role="tablist" aria-label="Período de cobrança">
+        <button class="period-btn" role="tab" onclick="setPeriod('mensal', this)">Mensal</button>
+        <button class="period-btn" role="tab" onclick="setPeriod('trimestral', this)">Trimestral</button>
+        <button class="period-btn active" role="tab" aria-selected="true" onclick="setPeriod('anual', this)">Anual <span class="period-save">★ economize até 38%</span></button>
+      </div>
+      <p class="period-hint">👆 Toque em Mensal, Trimestral ou Anual pra trocar todos os planos</p>
+    </div>
+
+    <div class="plans plansB-wrap show-anual" id="plansB">
 
       <!-- ESSENCIAL -->
       <div class="plan plan-1 reveal">
@@ -1278,17 +1255,11 @@
           <div class="plan-tg">Para começar seu cuidado com a alma</div>
         </div>
         <div class="plan-mid">
-          <div class="planb-switch">
-            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Mensal</span><span class="pb-opt-v">R$39,90/mês</span></span></div>
-            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Trimestral</span><span class="pb-opt-v">R$99 · R$33/mês</span></span></div>
+          <div class="pb-price-box">
+            <div class="when-mensal"><div class="pb-price">R$39,90<span>/mês</span></div><div class="pb-sub">cobrado mensalmente</div></div>
+            <div class="when-trimestral"><div class="pb-price">R$99<span>/trim</span></div><div class="pb-sub">R$33/mês · a cada 3 meses</div></div>
+            <div class="when-anual"><div class="pb-price">R$297<span>/ano</span></div><div class="pb-sub">R$24,75/mês · menos de R$1 por dia</div><div class="pb-old">de R$478,80/ano</div></div>
           </div>
-          <div class="planb-annual" tabindex="0" onclick="pbAnnual(this)" onkeydown="pbKey(event,this)">
-            <span class="pb-flag">★ Melhor escolha</span>
-            <div class="pb-period">Plano Anual</div>
-            <div class="pb-price">R$297<span>/ano</span></div>
-            <div class="pb-sub">R$24,75/mês · menos de R$1 por dia</div>
-          </div>
-          <p class="pb-hint">👆 Toque numa caixinha pra ver mensal ou trimestral</p>
           <div class="feat-title">✨ O que inclui</div>
           <ul class="plan-feats">
             <li>Até 10 mensagens por dia</li>
@@ -1309,24 +1280,30 @@
           <div class="plan-tg">Para aprofundar o cuidado todos os dias</div>
         </div>
         <div class="plan-mid">
-          <div class="planb-switch">
-            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Mensal</span><span class="pb-opt-v">R$49,90/mês</span></span></div>
-            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Trimestral</span><span class="pb-opt-v">R$129 · R$43/mês</span></span></div>
+          <div class="pb-price-box">
+            <div class="when-mensal"><div class="pb-price">R$49,90<span>/mês</span></div><div class="pb-sub">cobrado mensalmente</div></div>
+            <div class="when-trimestral"><div class="pb-price">R$129<span>/trim</span></div><div class="pb-sub">≈ R$43/mês · a cada 3 meses</div></div>
+            <div class="when-anual"><div class="pb-price">R$397<span>/ano</span></div><div class="pb-sub">≈ R$33/mês · + benefício extra</div><div class="pb-old">de R$598,80/ano</div></div>
           </div>
-          <div class="planb-annual" tabindex="0" onclick="pbAnnual(this)" onkeydown="pbKey(event,this)">
-            <span class="pb-flag">★ Melhor escolha · + benefício extra</span>
-            <div class="pb-period">Plano Anual</div>
-            <div class="pb-price">R$397<span>/ano</span></div>
-            <div class="pb-sub">≈ R$33/mês · 25 mensagens por dia</div>
+          <div class="when-mt">
+            <div class="feat-title">✨ O que inclui</div>
+            <ul class="plan-feats">
+              <li>15 mensagens por dia</li>
+              <li>Respostas mais profundas e cuidadosas</li>
+              <li>Histórico completo</li>
+              <li>3 orações em áudio por mês</li>
+              <li>1 resposta especial por mês</li>
+            </ul>
           </div>
-          <p class="pb-hint">👆 Toque numa caixinha pra ver mensal ou trimestral</p>
-          <div class="feat-title gold">💎 No anual você recebe</div>
-          <ul class="plan-feats">
-            <li>25 mensagens por dia</li>
-            <li>Respostas mais profundas e cuidadosas</li>
-            <li>Histórico completo</li>
-            <li>3 orações em áudio por mês</li>
-          </ul>
+          <div class="when-anual">
+            <div class="feat-title gold">💎 No anual você recebe</div>
+            <ul class="plan-feats">
+              <li>25 mensagens por dia</li>
+              <li>Respostas mais profundas e cuidadosas</li>
+              <li>Histórico completo</li>
+              <li>3 orações em áudio por mês</li>
+            </ul>
+          </div>
           <a href="#final" class="plan-btn">Quero o Completo</a>
         </div>
       </div>
@@ -1339,31 +1316,38 @@
           <div class="plan-tg">Para quem fez da Fonte um hábito diário</div>
         </div>
         <div class="plan-mid">
-          <div class="planb-switch">
-            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Mensal</span><span class="pb-opt-v">R$69,90/mês</span></span></div>
-            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Trimestral</span><span class="pb-opt-v">R$177 · R$59/mês</span></span></div>
+          <div class="pb-price-box">
+            <div class="when-mensal"><div class="pb-price">R$69,90<span>/mês</span></div><div class="pb-sub">cobrado mensalmente</div></div>
+            <div class="when-trimestral"><div class="pb-price">R$177<span>/trim</span></div><div class="pb-sub">R$59/mês · a cada 3 meses</div></div>
+            <div class="when-anual"><div class="pb-price">R$597<span>/ano</span></div><div class="pb-sub">≈ R$49/mês · + benefício extra</div><div class="pb-old">de R$838,80/ano</div></div>
           </div>
-          <div class="planb-annual" tabindex="0" onclick="pbAnnual(this)" onkeydown="pbKey(event,this)">
-            <span class="pb-flag">★ Melhor escolha · + benefício extra</span>
-            <div class="pb-period">Plano Anual</div>
-            <div class="pb-price">R$597<span>/ano</span></div>
-            <div class="pb-sub">≈ R$49/mês · 40 mensagens por dia + Grupo de WhatsApp</div>
+          <div class="when-mt">
+            <div class="feat-title">✨ O que inclui</div>
+            <ul class="plan-feats">
+              <li>25 mensagens por dia</li>
+              <li>Respostas mais profundas e detalhadas</li>
+              <li>Histórico completo</li>
+              <li>6 orações em áudio por mês</li>
+              <li>3 respostas especiais por mês</li>
+              <li>Prioridade de resposta</li>
+            </ul>
           </div>
-          <p class="pb-hint">👆 Toque numa caixinha pra ver mensal ou trimestral</p>
-          <div class="feat-title gold">💎 No anual você recebe</div>
-          <ul class="plan-feats">
-            <li>40 mensagens por dia ⭐</li>
-            <li>Respostas mais completas e detalhadas</li>
-            <li>Histórico completo</li>
-            <li>6 orações em áudio por mês</li>
-            <li>Grupo de WhatsApp</li>
-          </ul>
+          <div class="when-anual">
+            <div class="feat-title gold">💎 No anual você recebe</div>
+            <ul class="plan-feats">
+              <li>40 mensagens por dia ⭐</li>
+              <li>Respostas mais completas e detalhadas</li>
+              <li>Histórico completo</li>
+              <li>6 orações em áudio por mês</li>
+              <li>Grupo de WhatsApp</li>
+            </ul>
+          </div>
           <a href="#final" class="plan-btn">Quero o Avançado</a>
         </div>
       </div>
 
     </div>
-    <p class="plans-note">🤍 Mesmos planos, outra forma de mostrar. <strong>Me diz qual versão você prefere</strong> que eu deixo só ela no ar.</p>
+    <p class="plans-note">🤍 No anual, o seu cuidado sai por <strong>menos de R$1 por dia</strong>. Cancele quando quiser.</p>
   </div>
 </section>
 
@@ -1445,31 +1429,17 @@
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPrice(row); }
   }
 
-  // Versão B — anual destacado por padrão; caixinhas de mensal/trimestral acima
-  function pbPick(opt) {
-    const card = opt.closest('.plan-mid');
-    const annual = card.querySelector('.planb-annual');
-    const wasSelected = opt.classList.contains('selected');
-    card.querySelectorAll('.pb-opt').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-checked', 'false'); });
-    if (wasSelected) {
-      // desmarcou -> volta a destacar o anual
-      annual.classList.remove('dim');
-    } else {
-      opt.classList.add('selected');
-      opt.setAttribute('aria-checked', 'true');
-      annual.classList.add('dim');
-    }
-  }
-  function pbAnnual(annual) {
-    const card = annual.closest('.plan-mid');
-    card.querySelectorAll('.pb-opt').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-checked', 'false'); });
-    annual.classList.remove('dim');
-  }
-  function pbKey(e, el) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      if (el.classList.contains('planb-annual')) pbAnnual(el); else pbPick(el);
-    }
+  // Versão B — toggle de período no topo troca todos os planos de uma vez
+  function setPeriod(period, btn) {
+    const wrap = document.getElementById('plansB');
+    wrap.classList.remove('show-mensal', 'show-trimestral', 'show-anual');
+    wrap.classList.add('show-' + period);
+    btn.parentElement.querySelectorAll('.period-btn').forEach(b => {
+      b.classList.remove('active');
+      b.removeAttribute('aria-selected');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
   }
 </script>
 
