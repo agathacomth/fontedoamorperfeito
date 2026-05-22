@@ -385,6 +385,69 @@
   .feature h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
   .feature p { font-size: 0.84rem; color: var(--text-mid); }
 
+  /* ===== APP GALLERY ===== */
+  .gallery {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 1.6rem;
+    margin-top: 2.6rem;
+    align-items: stretch;
+  }
+  .gallery-main {
+    background: var(--white);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 44px rgba(27, 79, 114, 0.16);
+    border: 1px solid rgba(58, 173, 168, 0.14);
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-main img {
+    width: 100%;
+    display: block;
+  }
+  .gallery-cap {
+    padding: 1rem 1.4rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    border-top: 1px solid rgba(58,173,168,0.12);
+  }
+  .gallery-cap strong { color: var(--teal-dark); font-weight: 800; }
+  .gallery-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.6rem;
+  }
+  .gallery-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 34px var(--shadow);
+    border: 1px solid rgba(58, 173, 168, 0.14);
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-card .gc-img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, var(--teal-pale), #d4f0ef);
+    padding: 1.2rem;
+  }
+  .gallery-card .gc-img img {
+    max-width: 100%;
+    max-height: 230px;
+    border-radius: 12px;
+    box-shadow: 0 10px 26px rgba(27,79,114,0.16);
+  }
+  .gallery-card .gc-cap {
+    padding: 0.85rem 1.2rem;
+    font-size: 0.78rem;
+    color: var(--text-mid);
+  }
+  .gallery-card .gc-cap strong { color: var(--teal-dark); font-weight: 800; }
+
   /* ===== MASCOTE BANNER ===== */
   .mascote-banner {
     display: grid;
@@ -640,6 +703,89 @@
   }
   .plans-note strong { color: var(--teal-dark); }
 
+  /* ===== PLANS — VERSÃO B (anual destacado) ===== */
+  .planb-switch {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .pb-opt {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--off-white);
+    border: 1.5px solid rgba(58,173,168,0.25);
+    border-radius: 12px;
+    padding: 0.6rem 0.65rem;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+  .pb-opt:hover { background: #edf3f2; }
+  .pb-box {
+    width: 16px; height: 16px;
+    border-radius: 5px;
+    border: 2px solid var(--teal-light);
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.18s ease;
+  }
+  .pb-opt.selected { background: var(--teal-pale); border-color: var(--teal); }
+  .pb-opt.selected .pb-box { border-color: var(--teal); background: var(--teal); }
+  .pb-opt.selected .pb-box::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    color: #fff;
+    font-size: 0.66rem;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pb-opt-txt { line-height: 1.15; }
+  .pb-opt-l { font-size: 0.64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-light); display: block; }
+  .pb-opt-v { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
+  .pb-opt:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+  .planb-annual {
+    border: 2px solid var(--gold-light);
+    background: linear-gradient(160deg, var(--gold-pale), #fdeebb);
+    border-radius: 16px;
+    padding: 1.2rem 1.1rem 1.3rem;
+    text-align: center;
+    position: relative;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 28px rgba(212,168,67,0.22);
+  }
+  .planb-annual.dim { opacity: 0.5; box-shadow: none; border-color: rgba(212,168,67,0.3); }
+  .pb-flag {
+    position: absolute;
+    top: -0.7rem; left: 50%; transform: translateX(-50%);
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.56rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.28rem 0.85rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px var(--shadow-gold);
+  }
+  .pb-period { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #9a6f00; margin-top: 0.4rem; }
+  .pb-price {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--navy);
+    line-height: 1;
+    margin: 0.2rem 0 0.1rem;
+  }
+  .pb-price span { font-size: 0.9rem; font-style: normal; font-family: 'Montserrat'; color: var(--text-mid); font-weight: 600; }
+  .pb-sub { font-size: 0.74rem; font-weight: 700; color: var(--teal-dark); }
+  .pb-hint { font-size: 0.66rem; color: var(--text-light); text-align: center; margin: 0.6rem 0 0; }
+
   /* ===== FAQ ===== */
   .faq { max-width: 760px; margin: 2.5rem auto 0; }
   .faq-item {
@@ -723,7 +869,8 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 860px) {
-    .hero-grid, .split, .split.reverse, .mascote-banner { grid-template-columns: 1fr; }
+    .hero-grid, .split, .split.reverse, .mascote-banner, .gallery { grid-template-columns: 1fr; }
+    .gallery-side { grid-template-rows: auto auto; }
     .hero-grid { gap: 2.5rem; }
     .hero-visual { order: -1; }
     .split-img.phone { max-width: 260px; }
@@ -850,6 +997,34 @@
         <div class="step-num">3</div>
         <h3>Respire e siga</h3>
         <p>Feche os olhos, ouça, respire. O nó afrouxa. E fica registrado no seu histórico — pra você ver a sua caminhada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP GALLERY -->
+<section class="pad bg-off" id="porderntro">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Veja o app por dentro</span>
+      <h2>Simples como abrir uma conversa.<br>Acolhedor como um abraço.</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Sem telas confusas, sem tutorial. Você abre, escreve o que pesa e o cuidado começa ali mesmo — num ambiente calmo, feito pra acalmar.</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-main reveal">
+        <img src="png%20site/tela%20inicial%20(2).png" alt="Tela inicial do My Soul Care aberta no notebook">
+        <div class="gallery-cap">💻 <strong>Onde você quiser.</strong> No computador ou no celular, o My Soul Care te espera com um respiro de paz — e aquele "envie uma mensagem para começar".</div>
+      </div>
+      <div class="gallery-side">
+        <div class="gallery-card reveal">
+          <div class="gc-img"><img src="png%20site/Tela%20inicial.PNG" alt="Tela de conversa do My Soul Care"></div>
+          <div class="gc-cap">🌅 <strong>Sua tela inicial.</strong> Um cenário sereno e um campo só esperando o que vai no seu coração.</div>
+        </div>
+        <div class="gallery-card reveal">
+          <div class="gc-img"><img src="png%20site/menu%20lateral%20%20(1).png" alt="Menu lateral do My Soul Care com histórico e Pedir Oração"></div>
+          <div class="gc-cap">🙏 <strong>Tudo num lugar só.</strong> Suas conversas, seu histórico e o botão "Pedir Oração" sempre à mão.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1084,6 +1259,114 @@
   </div>
 </section>
 
+<!-- PLANS — VERSÃO B (anual em destaque) -->
+<section class="pad bg-gold" id="planos-b">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow gold">Versão alternativa da oferta · Opção B</span>
+      <h2>O anual em destaque,<br>os outros a um toque.</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Aqui o melhor preço (o <strong>anual</strong>) já aparece em evidência — e os planos mensal e trimestral ficam nas caixinhas acima, pra quem quiser comparar. Menos de R$1 por dia pra cuidar da sua alma todo dia.</p>
+    </div>
+    <div class="plans">
+
+      <!-- ESSENCIAL -->
+      <div class="plan plan-1 reveal">
+        <div class="plan-top">
+          <div class="plan-ic">💙</div>
+          <div class="plan-nm">Plano Essencial</div>
+          <div class="plan-tg">Para começar seu cuidado com a alma</div>
+        </div>
+        <div class="plan-mid">
+          <div class="planb-switch">
+            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Mensal</span><span class="pb-opt-v">R$39,90/mês</span></span></div>
+            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Trimestral</span><span class="pb-opt-v">R$99 · R$33/mês</span></span></div>
+          </div>
+          <div class="planb-annual" tabindex="0" onclick="pbAnnual(this)" onkeydown="pbKey(event,this)">
+            <span class="pb-flag">★ Melhor escolha</span>
+            <div class="pb-period">Plano Anual</div>
+            <div class="pb-price">R$297<span>/ano</span></div>
+            <div class="pb-sub">R$24,75/mês · menos de R$1 por dia</div>
+          </div>
+          <p class="pb-hint">👆 Toque numa caixinha pra ver mensal ou trimestral</p>
+          <div class="feat-title">✨ O que inclui</div>
+          <ul class="plan-feats">
+            <li>Até 10 mensagens por dia</li>
+            <li>Respostas acolhedoras e personalizadas</li>
+            <li>Acesso ao histórico de conversas</li>
+            <li>2 orações em áudio por mês</li>
+          </ul>
+          <a href="#final" class="plan-btn">Começar com o Essencial</a>
+        </div>
+      </div>
+
+      <!-- COMPLETO -->
+      <div class="plan plan-2 featured reveal">
+        <div class="plan-top">
+          <span class="plan-flag">🌟 Mais escolhido</span>
+          <div class="plan-ic">✨</div>
+          <div class="plan-nm">Plano Completo ⭐</div>
+          <div class="plan-tg">Para aprofundar o cuidado todos os dias</div>
+        </div>
+        <div class="plan-mid">
+          <div class="planb-switch">
+            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Mensal</span><span class="pb-opt-v">R$49,90/mês</span></span></div>
+            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Trimestral</span><span class="pb-opt-v">R$129 · R$43/mês</span></span></div>
+          </div>
+          <div class="planb-annual" tabindex="0" onclick="pbAnnual(this)" onkeydown="pbKey(event,this)">
+            <span class="pb-flag">★ Melhor escolha · + benefício extra</span>
+            <div class="pb-period">Plano Anual</div>
+            <div class="pb-price">R$397<span>/ano</span></div>
+            <div class="pb-sub">≈ R$33/mês · 25 mensagens por dia</div>
+          </div>
+          <p class="pb-hint">👆 Toque numa caixinha pra ver mensal ou trimestral</p>
+          <div class="feat-title gold">💎 No anual você recebe</div>
+          <ul class="plan-feats">
+            <li>25 mensagens por dia</li>
+            <li>Respostas mais profundas e cuidadosas</li>
+            <li>Histórico completo</li>
+            <li>3 orações em áudio por mês</li>
+          </ul>
+          <a href="#final" class="plan-btn">Quero o Completo</a>
+        </div>
+      </div>
+
+      <!-- AVANÇADO -->
+      <div class="plan plan-3 reveal">
+        <div class="plan-top">
+          <div class="plan-ic">👑</div>
+          <div class="plan-nm">Plano Avançado</div>
+          <div class="plan-tg">Para quem fez da Fonte um hábito diário</div>
+        </div>
+        <div class="plan-mid">
+          <div class="planb-switch">
+            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Mensal</span><span class="pb-opt-v">R$69,90/mês</span></span></div>
+            <div class="pb-opt" role="checkbox" tabindex="0" aria-checked="false" onclick="pbPick(this)" onkeydown="pbKey(event,this)"><span class="pb-box"></span><span class="pb-opt-txt"><span class="pb-opt-l">Trimestral</span><span class="pb-opt-v">R$177 · R$59/mês</span></span></div>
+          </div>
+          <div class="planb-annual" tabindex="0" onclick="pbAnnual(this)" onkeydown="pbKey(event,this)">
+            <span class="pb-flag">★ Melhor escolha · + benefício extra</span>
+            <div class="pb-period">Plano Anual</div>
+            <div class="pb-price">R$597<span>/ano</span></div>
+            <div class="pb-sub">≈ R$49/mês · 40 mensagens por dia + Grupo de WhatsApp</div>
+          </div>
+          <p class="pb-hint">👆 Toque numa caixinha pra ver mensal ou trimestral</p>
+          <div class="feat-title gold">💎 No anual você recebe</div>
+          <ul class="plan-feats">
+            <li>40 mensagens por dia ⭐</li>
+            <li>Respostas mais completas e detalhadas</li>
+            <li>Histórico completo</li>
+            <li>6 orações em áudio por mês</li>
+            <li>Grupo de WhatsApp</li>
+          </ul>
+          <a href="#final" class="plan-btn">Quero o Avançado</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="plans-note">🤍 Mesmos planos, outra forma de mostrar. <strong>Me diz qual versão você prefere</strong> que eu deixo só ela no ar.</p>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="pad bg-white">
   <div class="wrap">
@@ -1160,6 +1443,33 @@
   }
   function priceKey(e, row) {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPrice(row); }
+  }
+
+  // Versão B — anual destacado por padrão; caixinhas de mensal/trimestral acima
+  function pbPick(opt) {
+    const card = opt.closest('.plan-mid');
+    const annual = card.querySelector('.planb-annual');
+    const wasSelected = opt.classList.contains('selected');
+    card.querySelectorAll('.pb-opt').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-checked', 'false'); });
+    if (wasSelected) {
+      // desmarcou -> volta a destacar o anual
+      annual.classList.remove('dim');
+    } else {
+      opt.classList.add('selected');
+      opt.setAttribute('aria-checked', 'true');
+      annual.classList.add('dim');
+    }
+  }
+  function pbAnnual(annual) {
+    const card = annual.closest('.plan-mid');
+    card.querySelectorAll('.pb-opt').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-checked', 'false'); });
+    annual.classList.remove('dim');
+  }
+  function pbKey(e, el) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (el.classList.contains('planb-annual')) pbAnnual(el); else pbPick(el);
+    }
   }
 </script>
 
