@@ -1741,6 +1741,83 @@
   }
   .lp-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(58, 173, 168, 0.45); }
   .lp-cta-sub { font-size: 0.78rem; color: var(--text-light); margin-top: 0.7rem; }
+  .lp-cta-gold {
+    background: linear-gradient(135deg, var(--gold), #C8960C);
+    box-shadow: 0 10px 30px rgba(212, 168, 67, 0.35);
+  }
+  .lp-cta-gold:hover { box-shadow: 0 16px 40px rgba(212, 168, 67, 0.45); }
+  /* Grid de produtos */
+  .lp-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+    text-align: left;
+  }
+  .lp-card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 14px 44px rgba(27, 79, 114, 0.12);
+    border: 1px solid rgba(58, 173, 168, 0.15);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .lp-card.is-app { border-top: 4px solid var(--teal); }
+  .lp-card.is-course { border-top: 4px solid var(--gold); }
+  .lp-card-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.28rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.8rem;
+  }
+  .lp-card.is-app .lp-card-tag { background: var(--teal-pale); color: var(--teal-dark); }
+  .lp-card.is-course .lp-card-tag { background: var(--gold-pale); color: #9a6f00; }
+  .lp-card h3 {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.45rem;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  .lp-card .lp-card-sub { font-size: 0.86rem; color: var(--text-mid); margin-bottom: 1rem; }
+  .lp-card .lp-card-price {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+  }
+  .lp-card .lp-card-price strong { color: var(--gold); font-size: 1rem; }
+  .lp-card ul { list-style: none; margin-bottom: 1.2rem; }
+  .lp-card ul li {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    padding: 0.32rem 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .lp-card ul li::before { content: '🤍'; flex-shrink: 0; font-size: 0.78rem; margin-top: 0.1rem; }
+  .lp-card .lp-card-cta { margin-top: auto; }
+  .lp-card .lp-cta { width: 100%; justify-content: center; }
+  .lp-card-file { font-size: 0.7rem; color: var(--text-light); margin-top: 0.55rem; text-align: center; }
+  .lp-card-file strong { color: var(--text-mid); }
+  .lp-update {
+    background: var(--teal-pale);
+    border-left: 3px solid var(--teal);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-mid);
+  }
+  .lp-update strong { color: var(--teal-dark); }
 
   /* ===== SCROLL REVEAL ===== */
   .reveal {
@@ -3510,22 +3587,64 @@
 <div class="divider"></div>
 
 <!-- ======================================================
-     SEÇÃO 11: CTA — LANDING PAGE DO APP
+     SEÇÃO 11: PÁGINAS DE VENDAS (APP + CURSO)
      ====================================================== -->
 <div id="app"></div>
 <div class="section-full section-bg-gold">
 <div class="section-inner">
 <div class="section reveal" style="text-align: center;">
-  <span class="section-label section-label-gold">11 · Página de Vendas</span>
-  <h2 class="section-title" style="margin-left:auto;margin-right:auto;">A landing page do<br>App My Soul Care</h2>
+  <span class="section-label section-label-gold">11 · Páginas de Vendas</span>
+  <h2 class="section-title" style="margin-left:auto;margin-right:auto;">Os destinos<br>da nossa estratégia</h2>
   <div class="gold-line" style="margin-left:auto;margin-right:auto;"></div>
-  <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Toda essa estratégia precisa de um destino — um lugar pra onde os carrosséis, os reels e os stories empurram a audiência. Esse lugar é a landing page de vendas do app: uma página inteira desenhada pra apresentar o My Soul Care e gerar desejo do primeiro scroll ao botão final.</p>
-  <div class="lp-cta-wrap">
-    <a href="app_my_soul_care_landing_page.html" class="lp-cta" target="_blank" rel="noopener">🌟 Abrir a Landing Page do App My Soul Care</a>
-    <div class="lp-cta-sub">Abre em uma nova aba · arquivo <strong>app_my_soul_care_landing_page.html</strong> · use esse link na bio e nos CTAs dos conteúdos</div>
+  <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Toda essa estratégia precisa de destino — um lugar pra onde os carrosséis, os reels e os stories empurram a audiência. Hoje a Fonte do Amor Perfeito tem <strong>dois destinos</strong>: a página do app My Soul Care (recorrência) e a página do curso 30 dias com Jesus (entrada e ticket único). Cada uma tem o papel dela no funil.</p>
+
+  <div class="lp-products">
+
+    <!-- App MySoulCare -->
+    <div class="lp-card is-app reveal">
+      <span class="lp-card-tag">🍃 Produto principal · Recorrência</span>
+      <h3>App My Soul Care</h3>
+      <p class="lp-card-sub">Uma IA equipada com os ensinamentos de Jesus pra orientar o dia a dia da audiência.</p>
+      <p class="lp-card-price">A partir de <strong>R$ 24,75/mês</strong> (plano anual)</p>
+      <div class="lp-update">
+        <strong>🆕 Versão atualizada:</strong> a página foi reescrita pra posicionar o app como <strong>"IA equipada com os ensinamentos de Jesus"</strong> (e não "conversa com Jesus IA"). Foco ampliado pra direção espiritual, decisões e proximidade — não só ansiedade. Disclaimer legal no rodapé, mascotes sol/lua removidos, seção de planos com toggle Mensal/Trimestral/Anual e botão flutuante de WhatsApp pro suporte.
+      </div>
+      <ul>
+        <li>Hero com gancho "Já imaginou os ensinamentos de Jesus orientando o seu dia?"</li>
+        <li>Galeria com as telas reais do app (Tela inicial, mockup notebook, menu lateral)</li>
+        <li>3 planos com toggle de período (Mensal padrão) e selo "★ mais escolhido"</li>
+        <li>FAQ, depoimentos placeholder e CTA final</li>
+        <li>WhatsApp de suporte fixo (botão flutuante)</li>
+      </ul>
+      <div class="lp-card-cta">
+        <a href="app_my_soul_care_landing_page.html" class="lp-cta" target="_blank" rel="noopener">🌟 Abrir a página do App</a>
+        <div class="lp-card-file">Arquivo: <strong>app_my_soul_care_landing_page.html</strong></div>
+      </div>
+    </div>
+
+    <!-- Curso 30 dias com Jesus -->
+    <div class="lp-card is-course reveal">
+      <span class="lp-card-tag">📕 Curso · Ticket único</span>
+      <h3>30 dias com Jesus</h3>
+      <p class="lp-card-sub">Travessia diária baseada no ebook "30 dias para vencer a ansiedade com Jesus", da Fonte do Amor Perfeito.</p>
+      <p class="lp-card-price">De R$ 227,90 por <strong>R$ 29,90</strong> à vista no Pix</p>
+      <ul>
+        <li>4 fases (Despertar, Cura da Percepção, Curando as Raízes, Vida na Presença)</li>
+        <li>30 reflexões + 30 orações em áudio (entregues dentro do MySoulCare)</li>
+        <li>Bônus: 7 dias grátis no MySoulCare + cartões "Repete Hoje"</li>
+        <li>Garantia de 7 dias e acesso vitalício</li>
+        <li>Ponta de entrada barata pra escalar e qualificar o lead pro app</li>
+      </ul>
+      <div class="lp-card-cta">
+        <a href="curso_30_dias_landing_page.html" class="lp-cta lp-cta-gold" target="_blank" rel="noopener">📕 Abrir a página do Curso</a>
+        <div class="lp-card-file">Arquivo: <strong>curso_30_dias_landing_page.html</strong></div>
+      </div>
+    </div>
+
   </div>
+
   <div class="info-box info-box-gold" style="margin-top: 2rem; text-align: left;">
-    <strong>💡 Como usar:</strong> esse é o endereço pra colocar na bio do Instagram, nos CTAs dos carrosséis ("link na bio"), no "arraste pra cima" dos stories e na descrição dos vídeos do YouTube. Toda a comunicação leva pra cá — e aqui a pessoa decide. A página já vem com a nova identidade visual (Branco Sagrado + Teal Etéreo), os 3 planos, os símbolos da marca e os links do Instagram e do YouTube.
+    <strong>💡 Como usar os dois destinos no funil:</strong> use a página do <strong>curso (R$ 29,90)</strong> como porta de entrada nos anúncios pagos e nos conteúdos de topo de funil — ticket baixo, decisão rápida, gera prova social. Use a página do <strong>app (assinatura)</strong> como destino dos conteúdos de meio/fundo de funil (autoridade, prova, transformação) e como upsell automático pra quem já comprou o curso. Os dois links viram a sua bio do Instagram, os "arraste pra cima" dos stories e os CTAs dos vídeos.
   </div>
 </div>
 </div>

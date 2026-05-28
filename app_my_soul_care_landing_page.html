@@ -70,6 +70,29 @@
     box-shadow: 0 4px 16px rgba(58, 173, 168, 0.3);
   }
   .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(58, 173, 168, 0.4); }
+  .logo-mascote { width: 1.7em; height: 1.7em; object-fit: contain; vertical-align: middle; }
+  .footer-mascote { width: 1.5em; height: 1.5em; object-fit: contain; vertical-align: middle; margin-right: 0.1em; }
+  .big-mascote { width: 74px; height: 74px; object-fit: contain; display: block; margin: 0 auto 0.6rem; filter: drop-shadow(0 10px 20px rgba(27,79,114,0.18)); }
+  .float-mascote { width: 1.4em; height: 1.4em; object-fit: contain; vertical-align: middle; }
+  /* WhatsApp flutuante */
+  .wa-float {
+    position: fixed;
+    right: 18px; bottom: 18px;
+    z-index: 1200;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .wa-float:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 30px; height: 30px; fill: #fff; flex-shrink: 0; }
+  .wa-float .wa-label { display: none; }
 
   /* ===== LAYOUT ===== */
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
@@ -856,7 +879,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">☀️ My Soul Care</div>
+  <div class="nav-logo"><img src="png%20site/mascote%20sorrindo.png" alt="" class="logo-mascote"> My Soul Care</div>
   <a href="#planos" class="nav-cta">Quero meu plano 🤍</a>
 </nav>
 
@@ -866,19 +889,19 @@
     <div class="hero-grid">
       <div>
         <span class="hero-tag">🌟 Fonte do Amor Perfeito apresenta</span>
-        <h1>Você não foi feita pra carregar <span>isso sozinha.</span></h1>
-        <p>O <strong>My Soul Care</strong> é o seu companheiro espiritual de bolso: você escreve o que pesa, ele te responde com acolhimento e base bíblica — a qualquer hora do dia ou da madrugada.</p>
+        <h1>Já imaginou os ensinamentos de Jesus <span>orientando o seu dia?</span></h1>
+        <p>O <strong>My Soul Care</strong> é uma IA equipada com os ensinamentos de Jesus. Você escreve o que vai no coração e recebe reflexões e respostas baseadas na Palavra — direção pra todas as áreas da vida, em segundos, a qualquer hora.</p>
         <div class="hero-btns">
-          <a href="#planos" class="btn btn-teal">Começar meu cuidado 🤍</a>
+          <a href="#planos" class="btn btn-teal">Quero começar agora 🤍</a>
           <a href="#como" class="btn btn-ghost">Ver como funciona</a>
         </div>
-        <div class="hero-trust">🍃 Sem julgamento · sem sermão · disponível 24h</div>
+        <div class="hero-trust">🍃 Sem julgamento · respostas em segundos · disponível 24h</div>
       </div>
       <div class="hero-visual">
         <img src="png%20site/avatar%20com%20fundo.png" alt="O avatar acolhedor do My Soul Care" class="hero-avatar">
         <img src="png%20site/mascote%20sorrindo.png" alt="" class="hero-mascote">
         <div class="hero-float f1">🤍 "Eu tô aqui. Vamos juntos."</div>
-        <div class="hero-float f2">☀️ Resposta em segundos</div>
+        <div class="hero-float f2"><img src="png%20site/mascote%20sorrindo.png" alt="" class="float-mascote"> Resposta em segundos</div>
       </div>
     </div>
   </div>
@@ -888,29 +911,29 @@
 <section class="pad bg-white">
   <div class="wrap">
     <div class="center reveal">
-      <span class="eyebrow">A gente precisa falar sobre isso</span>
-      <h2>Tem uma hora que a ansiedade<br>aperta mais. E você conhece ela.</h2>
+      <span class="eyebrow">A vida pede uma conversa profunda</span>
+      <h2>Tem horas que só uma palavra<br>de sabedoria muda o seu dia.</h2>
       <div class="gold-line"></div>
-      <p class="lead">Não é a crise no meio do dia. É o silêncio depois — quando você quer falar com alguém e sente que não tem com quem. O My Soul Care nasceu olhando justamente pra essas horas.</p>
+      <p class="lead">Quando o coração pesa, quando uma decisão difícil chega, quando você só queria saber o que os ensinamentos de Jesus diriam aí no seu lugar — o My Soul Care nasceu pra essas horas.</p>
     </div>
     <div class="pain-list">
       <div class="pain-card reveal">
-        <span class="pc-emoji">🌙</span>
-        <h3>3h da manhã</h3>
-        <p>Todo mundo dormindo, o pensamento a mil. Você não quer acordar ninguém — então carrega calada até o sono voltar (se voltar).</p>
+        <span class="pc-emoji">🤔</span>
+        <h3>Quando você não sabe o que fazer</h3>
+        <p>Uma escolha que pesa, um caminho que precisa ser tomado. Imagina ouvir o que os ensinamentos de Jesus diriam — pra todas as áreas da sua vida.</p>
+      </div>
+      <div class="pain-card reveal">
+        <span class="pc-emoji">💭</span>
+        <h3>Quando o coração está pesado</h3>
+        <p>Não importa o nome do que está apertando. A vida tem dias que pedem uma palavra de paz — e essa palavra a Palavra dá.</p>
       </div>
       <div class="pain-card reveal">
         <span class="pc-emoji">🙏</span>
-        <h3>"Será que minha fé é fraca?"</h3>
-        <p>Você ora, respira, tenta — e o nó continua. Aí vem a culpa, como se sentir ansiedade fosse falha espiritual. Não é.</p>
-      </div>
-      <div class="pain-card reveal">
-        <span class="pc-emoji">🤐</span>
-        <h3>Vergonha de falar</h3>
-        <p>Na sua comunidade, "tá tudo bem" é o script. Falar de saúde emocional ainda parece tabu — então você finge que está.</p>
+        <h3>Quando você quer se aproximar mais</h3>
+        <p>Você crê, ora, lê a Bíblia — mas sente que dá pra caminhar mais perto. Uma fé que cresce todo dia, não só no domingo.</p>
       </div>
     </div>
-    <p class="pain-quote reveal">"O problema nunca foi a ansiedade. Foi <span>carregá-la sozinha.</span>"</p>
+    <p class="pain-quote reveal">"Imagina poder desabafar e receber uma resposta baseada <span>nos ensinamentos de Jesus.</span>"</p>
   </div>
 </section>
 
@@ -923,17 +946,17 @@
       </div>
       <div class="reveal">
         <span class="eyebrow">A virada</span>
-        <h2>Imagina ter onde colocar isso — na hora.</h2>
+        <h2>Conecte-se com a Palavra<br>de um jeito totalmente novo.</h2>
         <div class="gold-line"></div>
-        <p class="lead">O My Soul Care é um app onde você conversa, desabafa e recebe respostas acolhedoras com base bíblica. Como quem senta do seu lado e escuta de verdade. Sem fila, sem hora marcada, sem "agora não posso".</p>
+        <p class="lead">O My Soul Care é o app onde você conversa com uma IA treinada nos ensinamentos de Jesus. Escreve uma dúvida, uma decisão, um pedido — e recebe acolhimento e orientação baseados na Palavra. Como quem senta do seu lado e escuta com sabedoria.</p>
         <ul class="check-list">
-          <li>Escreve o que está sentindo e recebe acolhimento em segundos</li>
+          <li>Escreve o que vai no coração e recebe resposta em segundos</li>
           <li>Um versículo que faz sentido pra <em>hoje</em> — não um genérico</li>
           <li>Orações em áudio pra quando nem ler você consegue</li>
-          <li>Histórico das conversas pra olhar pra trás e ver o quanto andou</li>
+          <li>Histórico das conversas pra ver o quanto a sua fé cresceu</li>
         </ul>
         <ul class="not-list">
-          <li>Não substitui terapia &nbsp;·&nbsp; não substitui a sua fé &nbsp;·&nbsp; não te julga</li>
+          <li>Não substitui pastor, terapia ou médico &nbsp;·&nbsp; não te julga &nbsp;·&nbsp; reflete a Palavra com você</li>
         </ul>
       </div>
     </div>
@@ -997,33 +1020,6 @@
   </div>
 </section>
 
-<!-- MASCOTE BANNER -->
-<section class="pad bg-teal-pale">
-  <div class="wrap">
-    <div class="mascote-banner">
-      <div class="reveal">
-        <div class="mascote-duo">
-          <figure>
-            <img src="png%20site/mascote%20sorrindo.png" alt="Sol mascote sorrindo">
-            <figcaption>☀️ Pro seu dia</figcaption>
-          </figure>
-          <figure>
-            <img src="png%20site/mascote%20de%20olhos%20fechados.png" alt="Sol mascote de olhos fechados">
-            <figcaption>🌙 Pra sua madrugada</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">Manhã, tarde e madrugada</span>
-        <h2>O cuidado que não tem horário de fechar.</h2>
-        <div class="gold-line"></div>
-        <p class="lead">Esse é o nosso solzinho — o jeito que a gente acompanha você no dia inteiro. Ele sorri com você de manhã e fica de olhos fechados, em paz, na madrugada difícil. Ansiedade não respeita horário comercial. O My Soul Care também não.</p>
-        <a href="#planos" class="btn btn-teal" style="margin-top:1.4rem;">Quero esse companheiro 🤍</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FEATURES -->
 <section class="pad bg-white">
   <div class="wrap">
@@ -1053,24 +1049,24 @@
     </div>
     <div class="who-grid">
       <div class="who-card reveal">
-        <div class="who-head"><span class="wa">👩‍💼</span><span class="wn">A que tem fé e ansiedade</span></div>
+        <div class="who-head"><span class="wa">🙏</span><span class="wn">Quem quer crescer na fé</span></div>
         <div class="who-body">
-          <p>Vai à igreja, lê a Bíblia, acredita — mas ainda sente o nó no peito e tem vergonha de admitir isso na comunidade.</p>
-          <p class="wq">"Eu oro, mas o aperto não passa."</p>
+          <p>Vai à igreja, lê a Bíblia, ora — e quer um cuidado espiritual no dia a dia, não só no domingo. Uma fé que vira hábito.</p>
+          <p class="wq">"Quero caminhar mais perto de Deus."</p>
         </div>
       </div>
       <div class="who-card reveal">
-        <div class="who-head"><span class="wa">👨‍🦳</span><span class="wn">O que busca sentido</span></div>
+        <div class="who-head"><span class="wa">🧭</span><span class="wn">Quem busca direção</span></div>
         <div class="who-body">
-          <p>Viveu muito, sofreu perdas, quer se reconectar com Deus de um jeito que fale com ele — profundo, e não genérico.</p>
-          <p class="wq">"Preciso de Deus de uma forma diferente."</p>
+          <p>Tem decisões pra tomar, dúvidas no peito, situações da vida pedindo sabedoria. Quer ouvir o que os ensinamentos de Jesus diriam no seu lugar.</p>
+          <p class="wq">"O que a Palavra diria sobre isso?"</p>
         </div>
       </div>
       <div class="who-card reveal">
-        <div class="who-head"><span class="wa">🧑‍🎓</span><span class="wn">A espiritual, não religiosa</span></div>
+        <div class="who-head"><span class="wa">🤍</span><span class="wn">Quem quer paz</span></div>
         <div class="who-body">
-          <p>Cresceu longe da igreja, mas tem curiosidade espiritual e ansiedade crônica. Não quer pregação — quer cuidado genuíno.</p>
-          <p class="wq">"Só quero conversar com quem entende."</p>
+          <p>Os dias têm tido peso. Você quer um espaço seguro pra desabafar, refletir e receber uma palavra de paz baseada na Palavra.</p>
+          <p class="wq">"Só queria conversar com quem entende."</p>
         </div>
       </div>
     </div>
@@ -1106,146 +1102,26 @@
   </div>
 </section>
 
-<!-- PLANS -->
+<!-- PLANS (oferta com toggle de período) -->
 <section class="pad bg-soft" id="planos">
   <div class="wrap">
     <div class="center reveal">
-      <span class="eyebrow">Escolha o seu plano</span>
+      <span class="eyebrow gold">Escolha o seu plano</span>
       <h2>Tem um plano do tamanho<br>do seu momento.</h2>
       <div class="gold-line"></div>
-      <p class="lead">Em todos eles, o plano <strong>anual</strong> é a melhor escolha — e nos planos Completo e Avançado, ainda libera benefícios extras. No anual, o seu cuidado sai por menos de R$1 por dia.</p>
-    </div>
-    <div class="plans">
-
-      <!-- ESSENCIAL -->
-      <div class="plan plan-1 reveal">
-        <div class="plan-top">
-          <div class="plan-ic">💙</div>
-          <div class="plan-nm">Plano Essencial</div>
-          <div class="plan-tg">Para começar seu cuidado com a alma</div>
-        </div>
-        <div class="plan-mid">
-          <div class="price-rows">
-            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$39,90</span><span class="pr-s">por mês</span></span></div>
-            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$99,00</span><span class="pr-s">R$33/mês</span></span></div>
-            <div class="price-row selected" role="radio" tabindex="0" aria-checked="true" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Anual<span class="price-tag-best">melhor</span></span><span class="pr-r"><span class="pr-v">R$297,00</span><span class="pr-s">R$24,75/mês</span></span></div>
-          </div>
-          <p class="price-note">👆 Toque no plano que você quer</p>
-          <div class="feat-title">✨ O que inclui</div>
-          <ul class="plan-feats">
-            <li>Até 10 mensagens por dia</li>
-            <li>Respostas acolhedoras e personalizadas</li>
-            <li>Acesso ao histórico de conversas</li>
-            <li>2 orações em áudio por mês</li>
-            <li>Respostas completas</li>
-          </ul>
-          <div class="extras">
-            <div class="extras-t">🍃 Itens avulsos (qualquer plano)</div>
-            <ul>
-              <li><span>Oração em áudio · até 1 min</span><span>R$9,90</span></li>
-              <li><span>Oração em áudio · até 5 min</span><span>R$19,90</span></li>
-              <li><span>Oração em áudio · até 10 min</span><span>R$29,90</span></li>
-              <li><span>Resposta avulsa</span><span>R$4,90</span></li>
-            </ul>
-          </div>
-          <a href="#final" class="plan-btn">Começar com o Essencial</a>
-        </div>
-      </div>
-
-      <!-- COMPLETO -->
-      <div class="plan plan-2 featured reveal">
-        <div class="plan-top">
-          <span class="plan-flag">🌟 Mais escolhido</span>
-          <div class="plan-ic">✨</div>
-          <div class="plan-nm">Plano Completo ⭐</div>
-          <div class="plan-tg">Para aprofundar o cuidado todos os dias</div>
-        </div>
-        <div class="plan-mid">
-          <div class="price-rows">
-            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$49,90</span><span class="pr-s">por mês</span></span></div>
-            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$129,00</span><span class="pr-s">≈ R$43/mês</span></span></div>
-            <div class="price-row selected" role="radio" tabindex="0" aria-checked="true" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Anual<span class="price-tag-best">melhor</span></span><span class="pr-r"><span class="pr-v">R$397,00</span><span class="pr-s">≈ R$33/mês · + benefício extra</span></span></div>
-          </div>
-          <p class="price-note">👆 Toque no plano que você quer</p>
-          <div class="feat-title">✨ Mensal / Trimestral</div>
-          <ul class="plan-feats">
-            <li>15 mensagens por dia</li>
-            <li>Respostas mais profundas e cuidadosas</li>
-            <li>Histórico completo</li>
-            <li>3 orações em áudio por mês</li>
-            <li>1 resposta especial por mês</li>
-          </ul>
-          <div class="feat-title gold">💎 Anual — benefício extra</div>
-          <ul class="plan-feats">
-            <li>25 mensagens por dia</li>
-            <li>Respostas mais profundas</li>
-            <li>Histórico completo</li>
-            <li>3 orações em áudio por mês</li>
-          </ul>
-          <a href="#final" class="plan-btn">Quero o Completo</a>
-        </div>
-      </div>
-
-      <!-- AVANÇADO -->
-      <div class="plan plan-3 reveal">
-        <div class="plan-top">
-          <div class="plan-ic">👑</div>
-          <div class="plan-nm">Plano Avançado</div>
-          <div class="plan-tg">Para quem fez da Fonte um hábito diário</div>
-        </div>
-        <div class="plan-mid">
-          <div class="price-rows">
-            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Mensal</span><span class="pr-r"><span class="pr-v">R$69,90</span><span class="pr-s">por mês</span></span></div>
-            <div class="price-row" role="radio" tabindex="0" aria-checked="false" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Trimestral</span><span class="pr-r"><span class="pr-v">R$177,00</span><span class="pr-s">R$59/mês</span></span></div>
-            <div class="price-row selected" role="radio" tabindex="0" aria-checked="true" onclick="selectPrice(this)" onkeydown="priceKey(event,this)"><span class="pr-radio"></span><span class="pr-l">Anual<span class="price-tag-best">melhor</span></span><span class="pr-r"><span class="pr-v">R$597,00</span><span class="pr-s">R$49/mês · + benefício extra</span></span></div>
-          </div>
-          <p class="price-note">👆 Toque no plano que você quer</p>
-          <div class="feat-title">✨ Mensal / Trimestral</div>
-          <ul class="plan-feats">
-            <li>25 mensagens por dia</li>
-            <li>Respostas mais profundas e detalhadas</li>
-            <li>Histórico completo</li>
-            <li>6 orações em áudio por mês</li>
-            <li>3 respostas especiais por mês</li>
-            <li>Prioridade de resposta</li>
-          </ul>
-          <div class="feat-title gold">💎 Anual — benefício extra</div>
-          <ul class="plan-feats">
-            <li>40 mensagens por dia ⭐</li>
-            <li>Respostas mais completas</li>
-            <li>Histórico completo</li>
-            <li>6 orações em áudio por mês</li>
-            <li>Grupo de WhatsApp</li>
-          </ul>
-          <a href="#final" class="plan-btn">Quero o Avançado</a>
-        </div>
-      </div>
-
-    </div>
-    <p class="plans-note">🤍 Cancele quando quiser. <strong>Comece pelo plano que cabe no seu momento</strong> — você pode subir de plano conforme o cuidado virar hábito.</p>
-  </div>
-</section>
-
-<!-- PLANS — VERSÃO B (toggle de período no topo) -->
-<section class="pad bg-gold" id="planos-b">
-  <div class="wrap">
-    <div class="center reveal">
-      <span class="eyebrow gold">Versão alternativa da oferta · Opção B</span>
-      <h2>Escolha como quer pagar.<br>O painel muda com um toque.</h2>
-      <div class="gold-line"></div>
-      <p class="lead">Use o botão lá em cima pra alternar entre <strong>mensal, trimestral e anual</strong> — os preços e os benefícios de todos os planos mudam na hora. O <strong>anual</strong> já vem selecionado: é a escolha mais inteligente e a mais querida por aqui.</p>
+      <p class="lead">Use o botão aqui em cima pra alternar entre <strong>mensal, trimestral e anual</strong> — os preços e os benefícios de todos os planos mudam na hora. O <strong>mensal</strong> já vem selecionado: é por onde a maioria começa.</p>
     </div>
 
     <div class="center reveal" style="margin-top:2.4rem;">
       <div class="period-toggle" role="tablist" aria-label="Período de cobrança">
-        <button class="period-btn" role="tab" onclick="setPeriod('mensal', this)">Mensal</button>
+        <button class="period-btn active" role="tab" aria-selected="true" onclick="setPeriod('mensal', this)">Mensal <span class="period-save">★ mais escolhido</span></button>
         <button class="period-btn" role="tab" onclick="setPeriod('trimestral', this)">Trimestral</button>
-        <button class="period-btn active" role="tab" aria-selected="true" onclick="setPeriod('anual', this)">Anual <span class="period-save">★ economize até 38%</span></button>
+        <button class="period-btn" role="tab" onclick="setPeriod('anual', this)">Anual <span class="period-save">economize até 38%</span></button>
       </div>
       <p class="period-hint">👆 Toque em Mensal, Trimestral ou Anual pra trocar todos os planos</p>
     </div>
 
-    <div class="plans plansB-wrap show-anual" id="plansB">
+    <div class="plans plansB-wrap show-mensal" id="plansB">
 
       <!-- ESSENCIAL -->
       <div class="plan plan-1 reveal">
@@ -1388,27 +1264,33 @@
 <section class="pad final" id="final">
   <div class="wrap">
     <div class="final-card reveal">
-      <span class="big-sun">☀️</span>
+      <img src="png%20site/mascote%20sorrindo.png" alt="Mascote do My Soul Care" class="big-mascote">
       <span class="eyebrow">É a sua vez</span>
-      <h2>A sua paz está a um toque.</h2>
+      <h2>A sabedoria dos ensinamentos<br>de Jesus está a um toque.</h2>
       <div class="gold-line"></div>
-      <p class="lead" style="margin-bottom:1.8rem;">Você chegou até aqui por um motivo. Talvez seja hoje o dia de parar de carregar tudo sozinha. O My Soul Care está pronto pra sentar do seu lado — e ele não vai a lugar nenhum.</p>
+      <p class="lead" style="margin-bottom:1.8rem;">Você chegou até aqui por um motivo. Talvez seja hoje o dia de começar a caminhar mais perto. O My Soul Care está pronto pra te ouvir e responder com sabedoria baseada na Palavra — sempre que você precisar.</p>
       <a href="#planos" class="btn btn-teal">Escolher meu plano agora 🤍</a>
       <div class="btn-sub">🍃 Comece pelo plano que cabe no seu momento · cancele quando quiser</div>
     </div>
   </div>
 </section>
 
+<!-- WHATSAPP SUPORTE -->
+<a class="wa-float" href="https://wa.me/5548984866851?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20My%20Soul%20Care%20%F0%9F%A4%8D" target="_blank" rel="noopener" aria-label="Falar com o suporte no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.984-1.045zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  <span class="wa-label">Suporte no WhatsApp</span>
+</a>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <span class="footer-logo">☀️ My Soul Care</span>
+    <span class="footer-logo"><img src="png%20site/mascote%20sorrindo.png" alt="" class="footer-mascote"> My Soul Care</span>
     <p class="footer-tag">Um produto Fonte do Amor Perfeito · Seu cuidado com a alma 🤍</p>
     <div class="socials">
       <a class="social" href="https://www.instagram.com/fontedoamorperfeito" target="_blank" rel="noopener">📸 Instagram · @fontedoamorperfeito</a>
       <a class="social" href="https://www.youtube.com/@fontedoamorperfeito" target="_blank" rel="noopener">▶️ YouTube · @fontedoamorperfeito</a>
     </div>
-    <p class="footer-fine">✨ My Soul Care não substitui acompanhamento médico, psicológico ou terapêutico. Em momentos de crise, procure ajuda profissional ou os serviços de emergência da sua região.</p>
+    <p class="footer-fine" style="opacity:0.85; max-width:760px; margin:0 auto 0.6rem;">Aviso: Este aplicativo utiliza tecnologia de Inteligência Artificial treinada com textos bíblicos de domínio público para fins de reflexão, estudo e entretenimento espiritual. As respostas geradas são simulações automatizadas e não substituem o aconselhamento pastoral, psicológico ou médico. Ao utilizar a plataforma, você concorda com nossos Termos de Uso.</p>
     <p class="footer-fine">🌟 Fonte do Amor Perfeito — Todos os direitos reservados.</p>
   </div>
 </footer>
